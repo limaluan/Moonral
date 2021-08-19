@@ -7,17 +7,20 @@ function updatePosts() {
             let posts = JSON.parse(json);
             let postsElements = '';
 
-            posts.forEach((post) => {
-                let postElement = `
-                <div class="card-container">
-                    <h1 class="title-card">${post.title}</h1>
-                    <p class="description-card">${post.description}</p>
-                </div>`;
+            if (posts.length !== 0) {
 
-                postsElements += postElement;
-            })
+                posts.forEach((post) => {
+                    let postElement = `
+                    <div class="card-container">
+                        <h1 class="title-card">${post.title}</h1>
+                        <p class="description-card">${post.description}</p>
+                    </div>`;
 
-            document.querySelector("main").innerHTML = postsElements;
+                    postsElements += postElement;
+                })
+
+                document.querySelector("main").innerHTML = postsElements;
+            };
         })
 }
 
@@ -33,7 +36,11 @@ function newPost() {
     };
 
     fetch("http://localhost:3001/posts/new", options)
-    .then(updatePosts());
+        .then(() => {
+            title.value = '';
+            desc.value = '';
+            updatePosts()
+        });
 }
 
 updatePosts();

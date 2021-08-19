@@ -24,7 +24,8 @@ header {
     padding: .5rem 0;
 }
 
-.sr_only {  /* Hides an element from the user and allows to SEO read */
+/* Hides an element from the user and allows to SEO read */
+.sr_only {
     width: 0;
     height: 0;
     position: absolute;
@@ -33,6 +34,7 @@ header {
     margin: -50rem;
 }
 
+/* Container Element config */
 [class$="container"] {
     display: flex;
     align-items: center;
@@ -54,21 +56,23 @@ header {
 
 /* NewPost Panel */
 .newpost {
-    /* background-color: aqua; */
     height: 30rem;
     margin: 1rem 0;
-    
+
     position: relative;
 }
 
 .newpost > h1{
     position: absolute;
+    width: 100%;
+    text-align: center;
+    
     top: 50%;
     left: 50%;
-
     transform: translate(-50%,-50%);
     
     font-size: 3rem;
+    transition: ease-out 0.4s;
 }
 
 .newpost h1:hover {
@@ -78,16 +82,21 @@ header {
 #title, #desc,
 #submit {
     display: none;
+    opacity: 0;
     
     width: 30rem;
     height: 3rem;
-    margin: .5rem 0;
+    margin: .5rem auto;
 
-    transform: translateX(-50%);
-    left: 50%;
+    left: 0;
+    right: 0;
+
     position: absolute;
     
     font-size: 1.6rem;
+    animation: bounce 1s;
+    animation-delay: 0.3s;
+    animation-fill-mode: forwards;
 }
 
 #title {
@@ -106,12 +115,25 @@ header {
 
 /* Posts Panel */
 .panel {
-    /* background-color: aqua; */
     max-width: 114rem;
     margin: 1rem auto;
     
+    height: 50px;
+    
     display: grid;
+    position: relative;
     grid-template-columns: repeat(auto-fill,minmax(36rem,1fr));
+}
+
+.posts-placeholder {
+    position: absolute;
+    top: 0;
+
+    width: 100%;
+
+    text-align: center;    
+    font-size: clamp(4rem,10vw, 8rem);
+    font-weight: 400;
 }
 
 .card-container {
@@ -125,7 +147,10 @@ header {
     border: 1px solid rgba(0, 0, 0, 0.1);
 
     flex-direction: column;
-
+    
+    animation: bounce 1s;
+    animation-fill-mode: forwards;
+    transform: scale(0,0);
 }
 
 .card-container:hover {
@@ -142,10 +167,43 @@ header {
     font-size: 3rem;
 
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-
 }
 
 .description-card {
     padding: .5rem 1rem;
     font-size: 1.6rem;
+}
+
+/* Animations */
+@keyframes bounce {
+    50% { transform: scale(1.1,1.1); opacity: .5;}
+    100% { transform: scale(1,1); opacity: 1;}
+}
+
+/* media queries */
+@media (max-width: 1075px) {
+    .panel{
+        display: grid;
+        grid-auto-columns: 2;
+    }
+
+    .card-container {
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 725px) {
+    .logo-container > h1{
+        width: 100%;
+        text-align: center;
+        margin: 0 0;
+    }
+
+    .logo-container > img {
+        display: none;
+    }
+
+    .panel{
+        grid-auto-columns: 1;
+    }
 }

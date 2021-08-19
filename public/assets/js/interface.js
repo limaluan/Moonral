@@ -9,9 +9,9 @@ function toggleMenu() {
     if (!menuOpen) {
         newPostText.style.top = "50px";
 
-        title.style.display = "block";
-        desc.style.display = "block";
-        submit.style.display = "block";
+        title.style.display = "inline-block";
+        desc.style.display = "inline-block";
+        submit.style.display = "inline-block";
     }
 }
 
