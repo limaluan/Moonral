@@ -7,6 +7,11 @@
 <img src="https://github.com/limaluan/Moonral/blob/master/demo_imgs%20%5Bignore%5D/home.gif?raw=true">
 <p>
 <br>
+<p align="center"style="font-size: 20px">Deleting posts</p>
+<p align="center">
+<img src="https://github.com/limaluan/Moonral/blob/master/demo_imgs%20%5Bignore%5D/deleting.gif?raw=true">
+<p>
+
 <h2><p align="center">
     Made with ❤️ by LimaLuan
 <p><h2>

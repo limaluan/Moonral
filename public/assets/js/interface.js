@@ -14,4 +14,3 @@ function toggleMenu() {
         submit.style.display = "inline-block";
     }
 }
-

@@ -25,13 +25,8 @@ header {
 }
 
 /* Hides an element from the user and allows to SEO read */
-.sr_only {
-    width: 0;
-    height: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin: -50rem;
+.sr-only {
+    display: none;
 }
 
 /* Container Element config */
@@ -53,6 +48,7 @@ header {
     color: #fff;
     font-size: 3rem;
 }
+/* --------- */
 
 /* NewPost Panel */
 .newpost {
@@ -64,7 +60,6 @@ header {
 
 .newpost > h1{
     position: absolute;
-    width: 100%;
     text-align: center;
     
     top: 50%;
@@ -76,6 +71,7 @@ header {
 }
 
 .newpost h1:hover {
+    font-size: 3.1rem;
     cursor: pointer;
 }
 
@@ -112,6 +108,7 @@ header {
 #submit {
     bottom: 30px;
 }
+/* --------- */
 
 /* Posts Panel */
 .panel {
@@ -166,13 +163,42 @@ header {
     font-weight: 400;
     font-size: 3rem;
 
+    overflow-wrap: break-word;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .description-card {
+    width: 100%;
+    overflow-wrap: break-word;
+    text-align: center;
+    
     padding: .5rem 1rem;
     font-size: 1.6rem;
 }
+
+.close-button {
+    position: absolute;
+    right: 0;
+
+    width: 3rem;
+    height: 3rem;
+    background: rgb(206, 206, 206);
+
+    transition: all 200ms;
+}
+
+.close-button > h1 {
+    font-size: 2rem;
+    font-weight: 400;
+    text-align: center;
+}
+
+.close-button:hover {
+    background-color: var(--orange);
+    color: white;
+    cursor: pointer;
+}
+/* --------- */
 
 /* Animations */
 @keyframes bounce {
@@ -205,5 +231,9 @@ header {
 
     .panel{
         grid-auto-columns: 1;
+    }
+
+    .card-container {
+        margin: .5rem auto;
     }
 }
