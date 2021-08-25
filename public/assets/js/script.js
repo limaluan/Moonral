@@ -34,6 +34,7 @@ function updatePosts() {
                         <h1>Parece que você ainda não postou nada :(</h1>
                     </div>`
             }
+            deletePost(); // initializates deletePost Function
         })
 }
 
@@ -77,7 +78,6 @@ function newPost() {
 function deletePost() {
     for (let element of closeButton) {
         element.addEventListener('click', (e) => {
-            console.log(e.target)
             try {
                 const id = { id: e.target.children[0].innerText }; // get id of the post clicked
                 let options = {
