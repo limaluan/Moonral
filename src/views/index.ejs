@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/img/moonral_ico.png" type="image/PNG">
+    <title>Moonral</title>
+    <!--CSS-->
+    <link rel="stylesheet" href="/styles/style.css">
+    <!--Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Pacifico&display=swap"
+        rel="stylesheet">
+    <!--font-family: 'Open Sans', sans-serif; 300 / 400
+        font-family: 'Pacifico', cursive;-->
+</head>
+
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="/img/moonral.png" alt="Logo">
+            <h1>Moonral</h1>
+        </div>
+    </header>
+
+    <form method="POST" action="/" id="form-post" class="newpost">
+        <h1 id="newpost_title" onclick="toggleMenu()">Crie um novo post</h1>
+
+        <label class="sr-only" for="title">Título</label>
+        <input type="text" id="title" name="title" placeholder="Título" />
+
+        <label class="sr-only" for="desc">Descrição</label>
+        <textarea type="text" id="desc" name="desc" placeholder="Descrição"></textarea>
+
+        <button id="submit" type="submit" form="form-post">Criar</button>
+    </form>
+
+    <main class="panel">
+        <% if (posts.length <= 0) {%> 
+            <div class="posts-placeholder">
+            <h1>Parece que você ainda não postou nada :(</h1>
+            </div>
+        <%}else { %>
+            <% posts.forEach(post => { %>
+                <form method="POST" action="/delete/<%= post.id %>" id="<%= post.id %>" class="card-container">
+                    <button type='submit' class="close-button" form="<%= post.id %>"><h1>X</h1></button>
+                    <h1 class="title-card"><%= post.title %> <%= post.id %></h1>
+                    <p class="description-card"><%= post.desc %></p>
+                </form>
+            <% }) %> 
+        <% } %>
+    </main>
+    <script src="/js/interface.js"></script>
+</body>
+
+</html>
